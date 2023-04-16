@@ -1,0 +1,86 @@
+# [hostname]
+# ssh_only = false
+# format = '[$hostname](bold purple) '
+# trim_at = "."
+# disabled = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+# [character]                            # The name of the module we are configuring is "character"
+# success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+# error_symbol = "[✗](bold red)"
+
+format = """
+$character[](bg:#a3aed2 fg:#121212)\
+$username(bg:#a3aed2 fg:#090c0c)\
+[](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$ruby\
+$golang\
+$lua\
+$julia\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)"""
+
+[character]
+success_symbol = '[ ➜](bold green) '
+error_symbol = '[ ✗](bold red) '
+
+[username]
+show_always = true
+style_user = "bg:#a3aed2 fg:#1d2230"
+style_root = "bg:#a3aed2 fg:#090c0c"
+format = '[ $user]($style)'
+disabled = false
+
+[directory]
+style = "fg:#1d2230 bg:#769ff0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#394260"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[$all_status$ahead_behind ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#212736 fg:#a3be8c"
+format = '[ $symbol ($version) ]($style)'
+
+[ruby]
+symbol = ""
+style = "bg:#212736 fg:#bf616a"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#212736 fg:#b7410e"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = ""
+style = "bg:#212736 fg:#9250a3"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#212736 fg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = ""
+style = "bg:#212736 fg:#3c449c"
+format = '[ $symbol ($version) ]($style)'
+
