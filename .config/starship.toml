@@ -80,7 +80,7 @@ style = "bg:#212736 fg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [lua]
-symbol = ""
+symbol = ""
 style = "bg:#212736 fg:#3c449c"
 format = '[ $symbol ($version) ]($style)'
 
