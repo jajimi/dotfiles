@@ -2,7 +2,7 @@ name: Release notes
 
 on:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '0-50/5 * * * *'
     
 jobs:
   job1:
@@ -19,5 +19,7 @@ jobs:
     if: ${{ needs.job1.outputs.matrix == 0 }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Holi, esta semana es par, no hay release notes"
+      - run: |
+          echo "chi"
+          echo "Holi, esta semana es par, no hay release notes"
 
