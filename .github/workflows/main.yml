@@ -1,0 +1,18 @@
+name: Release notes
+
+on:
+  schedule:
+    - cron: '0-50/5 * * * *'
+    
+jobs:
+  get-week: 
+  runs-on: ubuntu-latest
+  steps:
+    - name: Get odd week 
+      run: |
+        ODD_WEEK=$(expr $(date +%W) % 2)
+        echo "Exporting it as an env variable"
+        echo "ODD_WEEK=$ODD_WEEK" >> $GITHUB_ENV
+        
+  if: ${{ ODD_WEEK }} == 0
+    run: echo "Holi hoy es semana par"
