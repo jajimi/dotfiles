@@ -2,7 +2,7 @@ name: Release notes
 
 on:
   schedule:
-    - cron: '0-50/10 * * * *'
+    - cron: '5 * * * *'
     
 jobs:
   job1:
@@ -11,7 +11,9 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - id: set-matrix
-        run: echo "matrix=$(expr $(date +%W) % 2)" >> $GITHUB_OUTPUT
+        run: | 
+          echo "chi"
+          echo "matrix=$(expr $(date +%W) % 2)" >> $GITHUB_OUTPUT
   job2:
     needs: job1
     if: ${{ needs.job1.outputs.matrix == 0 }}
