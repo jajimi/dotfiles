@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Semana par
-        if: $(("( $(date +%s) - $(date +%s --date=20220622) ) / 86400 % 14")) == 0
+        if: needs.job1.outputs.matrix == 0
         run: |
           echo chi
           echo otra forma de comparar: $(("( $(date +%s) - $(date +%s --date=20220622) ) / 86400 % 14"))
