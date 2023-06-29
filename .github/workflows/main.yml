@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "chi"
-          echo "La semana es $(expr $(date +%W) % 2)"
-          echo "week =" ${{needs.job1.outputs.matrix}}          
-          echo "Holi, esta semana es par, no hay release notes"
+          echo chi
+          echo La semana es $(expr $(date +%W) % 2)
+          echo week = ${{needs.job1.outputs.matrix}}          
+          echo Holi, esta semana es par, no hay release notes
           
   job3:
     needs: job1
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "chi"
-          echo "La semana es $(expr $(date +%W) % 2)"
-          echo "week =" ${{needs.job1.outputs.matrix}}
-          echo "Holi, esta semana es impar, hay release notes"
+          echo chi
+          echo La semana es $(expr $(date +%W) % 2)
+          echo week = ${{needs.job1.outputs.matrix}}
+          echo Holi, esta semana es impar, hay release notes
