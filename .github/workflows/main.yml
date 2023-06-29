@@ -15,4 +15,6 @@ jobs:
         echo "ODD_WEEK=$ODD_WEEK" >> $GITHUB_ENV
         
   if: ${{ ODD_WEEK }} == 0
-    run: echo "Holi hoy es semana par"
+    steps: 
+      run: | 
+        echo "Holi hoy es semana par"
