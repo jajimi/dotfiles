@@ -2,19 +2,20 @@ name: Release notes
 
 on:
   schedule:
-    - cron: '0-50/5 * * * *'
+    - cron: '0-50/10 * * * *'
     
 jobs:
-  get-week: 
-  runs-on: ubuntu-latest
-  steps:
-    - name: Get odd week 
-      run: |
-        ODD_WEEK=$(expr $(date +%W) % 2)
-        echo "Exporting it as an env variable"
-        echo "ODD_WEEK=$ODD_WEEK" >> $GITHUB_ENV
-        
-  if: ${{ ODD_WEEK }} == 0
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      run: | 
-        echo "Holi hoy es semana par"
+      - id: set-matrix
+        run: echo "matrix=$(expr $(date +%W) % 2)" >> $GITHUB_OUTPUT
+  job2:
+    needs: job1
+    if: ${{ needs.job1.outputs.matrix == 0 }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Holi, esta semana es par, no hay release notes"
+
