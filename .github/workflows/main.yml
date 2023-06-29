@@ -15,22 +15,26 @@ jobs:
         
   job2:
     needs: job1
-    if: ${{ needs.job1.outputs.matrix}} == 0
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Semana par
+        if: ${{ needs.job1.outputs.matrix}} == 0
+        run: |
           echo chi
+          echo la condición es ${{needs.job1.outputs.matrix == 0}}
           echo La semana es $(expr $(date +%W) % 2)
           echo week = ${{needs.job1.outputs.matrix}}          
           echo Holi, esta semana es par, no hay release notes
           
   job3:
     needs: job1
-    if: ${{ needs.job1.outputs.matrix}} == 1
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Semana impar
+        if: ${{ needs.job1.outputs.matrix}} == 1
+        run: |
           echo chi
+          echo la condición es ${{needs.job1.outputs.matrix == 0}}
           echo La semana es $(expr $(date +%W) % 2)
           echo week = ${{needs.job1.outputs.matrix}}
           echo Holi, esta semana es impar, hay release notes
