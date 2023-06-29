@@ -16,7 +16,7 @@ jobs:
           echo "matrix=$(expr $(date +%W) % 2)" >> $GITHUB_OUTPUT
   job2:
     needs: job1
-    if: ${{ needs.job1.outputs.matrix == 0 }}
+    if: ${{ needs.job1.outputs.matrix}} == 0
     runs-on: ubuntu-latest
     steps:
       - run: |
