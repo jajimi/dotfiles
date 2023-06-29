@@ -34,7 +34,7 @@ jobs:
         if: ${{ needs.job1.outputs.matrix}} == 1
         run: |
           echo chi
-          echo la condición es ${{needs.job1.outputs.matrix == 0}}
+          echo la condición es ${{needs.job1.outputs.matrix == 1}}
           echo La semana es $(expr $(date +%W) % 2)
           echo week = ${{needs.job1.outputs.matrix}}
           echo Holi, esta semana es impar, hay release notes
