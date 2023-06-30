@@ -19,13 +19,6 @@ jobs:
     steps:
       - name: Semana par
         if: needs.job1.outputs.matrix == 0
-        run: |
-          echo chi
-          echo otra forma de comparar: $(("( $(date +%s) - $(date +%s --date=20220622) ) / 86400 % 14"))
-          echo la condición es ${{$(("( $(date +%s) - $(date +%s --date=20220622) ) / 86400 % 14")) == 0}}
-          echo La semana es $(expr $(date +%W) % 2)
-          echo week = ${{needs.job1.outputs.matrix}}          
-          echo Holi, esta semana es par, no hay release notes
 
       - name: Checkout repository
         uses: actions/checkout@v3
