@@ -19,7 +19,9 @@ jobs:
     if: needs.job1.outputs.matrix == 0
     steps:
       - name: Semana par
-        run: echo Esta es semana par
+        run: | 
+          echo chi
+          echo Esta es semana par
 
       - name: Checkout repository
         uses: actions/checkout@v3
