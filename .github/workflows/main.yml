@@ -16,9 +16,10 @@ jobs:
   job2:
     needs: job1
     runs-on: ubuntu-latest
+    if: needs.job1.outputs.matrix == 0
     steps:
       - name: Semana par
-        if: needs.job1.outputs.matrix == 0
+        run: echo Esta es semana par
 
       - name: Checkout repository
         uses: actions/checkout@v3
