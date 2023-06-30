@@ -2,7 +2,7 @@ name: Release notes
 
 on:
   schedule:
-    - cron: '0 0 * * Mon'
+    - cron: '0-50/5 * * * *'
 
 jobs:
   job1:
@@ -35,5 +35,8 @@ jobs:
           bundler-cache: true
           ruby-version: 3.1.2
       - name: Bundle install
-        run: bundle install
+        run: |
+          echo Initializing install
+          bundle install
+          echo everything installed!
 
