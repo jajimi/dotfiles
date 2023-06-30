@@ -39,3 +39,4 @@ jobs:
           echo chi
           echo Esta es semana par
           redis-server
+          echo chi chi chi
