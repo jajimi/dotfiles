@@ -1,7 +1,8 @@
 window {
-  background-image: url("../../Imágenes/The-Secret-Of-Kells.png");
+  background-image: url("../../Pictures/The-Secret-Of-Kells.png");
   background-size: cover;
   background-color: black;
+  background-position: center;
 }
 
 #window-box {
